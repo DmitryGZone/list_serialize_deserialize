@@ -1,0 +1,40 @@
+# === Build artifacts ===
+bin/
+build/
+*.o
+*.obj
+*.exe
+*.out
+*.log
+*.env
+list_program
+
+# === Project files ===
+log.txt
+*.db
+*.sqlite
+*.sqlite3
+outlet.out
+
+# === Data directory ===
+data/
+
+# === OS/Editor junk ===
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# === VS Code ===
+.vscode/
+
+# === CMake ===
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# === Backup files ===
+*.bak
+*.tmp
