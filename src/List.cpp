@@ -28,6 +28,7 @@ void List::create_list_from_file(const std::string& inlet_file) {
 
     while (std::getline(ifs, line)) {
         size_t pos = line.find_last_of(';');
+        if (pos == std::string::npos) throw std::runtime_error("Invalid line format: " + line);
         std::string data = line.substr(0, pos);
         int rand_index = std::stoi(line.substr(pos + 1));
         parsed_node.push_back({data, rand_index});
@@ -68,6 +69,7 @@ void List::serialize(const std::string& outlet_file) {
     }
     
     std::ofstream ofs(outlet_file, std::ios::binary);
+    if(!ofs.is_open()) throw std::runtime_error("Cannot open file: " + outlet_file);
 
     uint32_t node_count = static_cast<uint32_t>(count);
     ofs.write(reinterpret_cast<const char*>(&node_count), sizeof(node_count));
@@ -75,7 +77,7 @@ void List::serialize(const std::string& outlet_file) {
     current = head;
     while (current) {
         // Записываем data
-        size_t len = current->data.length();
+        uint32_t len = current->data.length();
         ofs.write(reinterpret_cast<const char*>(&len), sizeof(len));
         ofs.write(current->data.c_str(), len);
         
@@ -119,7 +121,7 @@ void List::deserialize(const std::string& outlet_file) {
     // Читаем данные каждого узла
     for (uint32_t i = 0; i < node_count; i++) {
         // Читаем длину строки data
-        size_t data_len;
+        uint32_t data_len;
         ifs.read(reinterpret_cast<char*>(&data_len), sizeof(data_len));
         
         // Читаем data
