@@ -3,19 +3,19 @@
 
 int main() {
     try {
-        std::cout << "=== Тест ===\n\n";
+        std::cout << "=== Test ===\n\n";
         
-        // Создание списка из файла
+        // Create a list from a file
         List original_list;
         original_list.create_list_from_file("inlet.in");
-        std::cout << "Создано узлов: " << original_list.count << "\n";
+        std::cout << "Nodes created: " << original_list.count << "\n";
         
-        // Вывод готового списка
-        std::cout << "\nИсходный список:\n";
+        // Print the resulting list
+        std::cout << "\nOriginal list:\n";
         ListNode* current = original_list.head;
         int index = 0;
         while (current) {
-            std::cout << "Узел " << index << ": data=\"" << current->data << "\"";
+            std::cout << "Node " << index << ": data=\"" << current->data << "\"";
             
             if (current->prev) {
                 std::cout << ", prev=\"" << current->prev->data << "\"";
@@ -40,17 +40,17 @@ int main() {
             index++;
         }
         
-        // Сериализация
+        // Serialization
         original_list.serialize("outlet.out");
-        std::cout << "\nСериализация завершена\n";
+        std::cout << "\nSerialization completed\n";
         
-        // Десериализация
+        // Deserialization
         List restored_list;
         restored_list.deserialize("outlet.out");
-        std::cout << "Десериализация завершена\n";
+        std::cout << "Deserialization completed\n";
         
-        // Вывод восстановленного списка
-        std::cout << "\nВосстановленный список:\n";
+        // Print the restored list
+        std::cout << "\nRestored list:\n";
         current = restored_list.head;
         index = 0;
         while (current) {
@@ -82,7 +82,7 @@ int main() {
         std::cout << "\n";
         
     } catch (const std::exception& e) {
-        std::cerr << "\nОшибка: " << e.what() << std::endl;
+        std::cerr << "\nError: " << e.what() << std::endl;
         return 1;
     }
     

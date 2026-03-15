@@ -1,51 +1,49 @@
-# Сериализация/Десериализация двусвязного списка
+# Doubly Linked List Serialization/Deserialization
 
 
-## Описание задачи
-Реализация программы для сериализации и десериализации двусвязного списка из файла заданного формата с дополнительной связью `rand`, указывающей на произвольный элемент списка
+## Task Description
+Implementation of a program for serializing and deserializing a doubly linked list from a file of a given format with an additional `rand` pointer that points to an arbitrary element of the list.
 
 
-### Структура узла (ListNode)
-- `prev` — указатель на предыдущий элемент
-- `next` — указатель на следующий элемент  
-- `rand` — указатель на произвольный элемент списка
-- `data` — строковые данные (до 1000 символов, UTF-8)
+### Node Structure (ListNode)
+- `prev` — pointer to the previous element
+- `next` — pointer to the next element
+- `rand` — pointer to an arbitrary list element
+- `data` — string data (up to 1000 characters, UTF-8)
 
 
-## Формат входного файла (inlet.in)
-Текстовый файл, каждая строка содержит:
+## Input File Format (inlet.in)
+Text file where each line contains:
 <data>;<rand_index>
-где `rand_index` — индекс узла для связи `rand` или -1, если `rand == nullptr`
+where `rand_index` is the index of the node for the `rand` pointer, or -1 if `rand == nullptr`.
 
-Пример:
+
+Example:
+
 apple;2
 banana;-1
 carrot;1
 
 
-## Требования
-- Максимальное количество узлов: 1 000 000
-- Длина строки data: до 1000 символов
-- Поддержка UTF-8
+## Requirements
+- Maximum number of nodes: 1,000,000
+- Data string length: up to 1000 characters
+- UTF-8 support
 
 
-## Сборка и запуск
+## Build and Run
 
 
-### Компиляция
+### Compilation
 ```bash
 g++ -std=c++17 -Wall -Wextra -o list_program src/main.cpp src/List.cpp
 ```
 
 
-### Запуск
+### Run
 ./list_program
 
 
-### Входные/выходные файлы
-inlet.in — входной текстовый файл (должен находиться в корне проекта)
-outlet.out — выходной бинарный файл (создается программой)
-
-
-## Примечание
-`main.cpp` содержит тестовый код для проверки работоспособности программы и не является частью задания
+### Input/Output Files
+- inlet.in — input text file (must be in the project root directory)
+- outlet.out — output binary file (created by the program)
