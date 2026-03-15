@@ -54,7 +54,7 @@ int main() {
         current = restored_list.head;
         index = 0;
         while (current) {
-            std::cout << "Узел " << index << ": data=\"" << current->data << "\"";
+            std::cout << "Node " << index << ": data=\"" << current->data << "\"";
             
             if (current->prev) {
                 std::cout << ", prev=\"" << current->prev->data << "\"";
