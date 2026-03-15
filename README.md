@@ -14,15 +14,17 @@ Implementation of a program for serializing and deserializing a doubly linked li
 
 ## Input File Format (inlet.in)
 Text file where each line contains:
+```text
 <data>;<rand_index>
+```
 where `rand_index` is the index of the node for the `rand` pointer, or -1 if `rand == nullptr`.
 
 
 Example:
 
-apple;2
-banana;-1
-carrot;1
+    apple;2
+    banana;-1
+    carrot;1
 
 
 ## Requirements
